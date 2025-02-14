@@ -17,3 +17,21 @@ export const addCategory = async (req, res) =>{
         })
     }
 }
+
+export const existingCategory = async (req, res) =>{
+    try{
+        const categories = await Category.find().select(' name description');
+        res.status(200).json({
+            success: true,
+            message: "Categories that exist:",
+            categories:categories
+        })
+
+    }catch(err){
+        return res.status(500).json({
+            message: "Error when knowing existing categories",
+            error: err.message
+        })
+    }
+}
+
