@@ -8,6 +8,6 @@ router.patch("/changeRol/:uid", validatorRol, modifyRole)
 
 router.put("/updateUser/:uid", validatorUpdateUser, updateUser)
 
-router.get("/deleteUser/:uid", validatorDeleteUser, deleteUser)
+router.delete("/deleteUser/:uid", validatorDeleteUser, deleteUser)
 
 export default router

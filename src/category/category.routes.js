@@ -1,11 +1,15 @@
 
 import { Router } from "express";
-import { validatorCreateCategory } from "../middleware/category-validator.js";
-import { addCategory, existingCategory } from "./category.controller.js";
+import { validatorCreateCategory, validatorDeleteCategory, validatorExisting, validatorUpdateCategory } from "../middleware/category-validator.js";
+import { addCategory, deleteCourse, existingCategory, updateUser } from "./category.controller.js";
 
 const router = Router();
 
 router.post("/createCategory", validatorCreateCategory, addCategory) 
 
-router.get("/", existingCategory) 
+router.get("/", validatorExisting, existingCategory) 
+
+router.put("/updateCategory/:uid", validatorUpdateCategory, updateUser)
+
+router.delete("/deleteCategory/:uid", validatorDeleteCategory, deleteCourse)
 export default router;
