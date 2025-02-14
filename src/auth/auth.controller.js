@@ -23,3 +23,41 @@ export const register = async (req, res) => {
         });
     }
 }
+
+export const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const acces = await User.findOne({ email });
+
+        if (!acces) {
+            return res.status(400).json({
+                message: "Invalid credential",
+                error: "There is no user with the entered email"
+            })
+        }
+
+        const validatorPassword = await verify(acces.password, password)
+
+        if (!validatorPassword) {
+            return res.status(400).json({
+                message: "Invalid credentials",
+                error: "The password is incorrect"
+            })
+        }
+
+        const webToken = await generateJWT(acces.id)
+        return res.status(200).json({
+            message: "login successful",
+            userDetails: {
+                role: `Te has logeado desde tu cuenta de ${acces.role}`,
+                token: webToken
+            }
+        })
+    } catch (err) {
+        return res.status(500).json({
+            message: "login failed, server error",
+            error: err.message
+
+        })
+    }
+}
