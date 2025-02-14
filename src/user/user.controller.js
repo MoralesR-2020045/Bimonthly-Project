@@ -3,7 +3,7 @@ import User from "./user.model.js"
 export const modifyRole = async (req, res) => {
     try {
         const {uid} = req.params;
-        const data = req.body
+        const data = req.body;
         const user = await User.findByIdAndUpdate(uid, data, { new: true });
 
         res.status(200).json({
