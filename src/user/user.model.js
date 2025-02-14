@@ -17,6 +17,7 @@ const userSchema = Schema({
     },
     username:{
         type: String, 
+        unique: true,
         required: [true, "username is required"],
         minLength: [3, "Name needs more than 3 characters"],
         maxLength: [30, "Name cannot exced 30 characters"]
@@ -34,7 +35,8 @@ const userSchema = Schema({
     email:{
         type: String, 
         required: [true, "Email is required"],
-        maxLength: [60, "Name cannot exced 30 characters"]
+        maxLength: [60, "Name cannot exced 30 characters"],
+        unique:true
     },
     password:{
         type: String,
