@@ -24,8 +24,7 @@ export const validatorRegister = [
 ]
 
 export const validatorLogin =[
-    body("email").isEmail().withMessage("It is not a valid email"),
-    body("email").notEmpty().withMessage("Email is mandatory"),
+    body("user").optional().notEmpty().withMessage("Email is mandatory"),
     body("password").notEmpty().withMessage("The password is mandatory"),
     body("password").isStrongPassword({
         minLength: 8,

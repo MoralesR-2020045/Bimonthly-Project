@@ -26,8 +26,8 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const acces = await User.findOne({ email });
+        const { user, password } = req.body;
+        const acces = await User.findOne({ $or: [{ email: user }, { username: user }] });
 
         if (!acces) {
             return res.status(400).json({
