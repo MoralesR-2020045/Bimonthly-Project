@@ -16,7 +16,6 @@ export const validatorCreateCategory =[
 export const validatorExisting = [
     validateJWT,
     hasRoles("ADMIN"),
-    bodyValidator
 ]
 
 export const validatorUpdateCategory = [

@@ -1,3 +1,4 @@
+import { strictTransportSecurity } from "helmet";
 import Category from "./category.model.js";
 
 export const addCategory = async (req, res) => {
@@ -20,9 +21,9 @@ export const addCategory = async (req, res) => {
 
 export const existingCategory = async (req, res) => {
     try {
-        const categories = await Category.find().select(' name description');
+        const categories = await Category.find({ status: true })
 
-        if (categories.status === true) {
+        if (categories) {
             res.status(200).json({
                 success: true,
                 message: "Categories that exist",

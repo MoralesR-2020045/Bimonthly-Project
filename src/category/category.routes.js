@@ -7,7 +7,7 @@ const router = Router();
 
 router.post("/createCategory", validatorCreateCategory, addCategory) 
 
-router.get("/", validatorExisting, existingCategory) 
+router.get("/listCategory", validatorExisting, existingCategory) 
 
 router.put("/updateCategory/:uid", validatorUpdateCategory, updateUser)
 
