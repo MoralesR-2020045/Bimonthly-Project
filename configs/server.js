@@ -11,7 +11,7 @@ import categoryRoutes from "../src/category/category.routes.js"
 import { defaultCategory } from "../src/helpers/category-fuctions.js"
 import productRoutes from "../src/product/product.routes.js"
 import cartRoutes from "../src/cart/cart.routes.js"
-
+import invoicesRoutes from "../src/invoice/invoice.routes.js"
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended : false }));
     app.use(express.json());
@@ -26,6 +26,7 @@ const routes = (app) =>{
     app.use("/bimonthlyProject/v1/category", categoryRoutes);
     app.use("/bimonthlyProject/v1/product", productRoutes);
     app.use("/bimonthlyProject/v1/cart", cartRoutes);
+    app.use("/bimonthlyProject/v1/invoices", invoicesRoutes);
 }
 
 const conectarDB = async () =>{

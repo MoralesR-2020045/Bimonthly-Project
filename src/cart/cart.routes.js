@@ -8,7 +8,6 @@ router.post("/addCart", validatorAddProduct, addProductToCart)
 
 router.get("/cart", validatorGetProduct, getCart)
 
-
 router.delete("/deleteProductFromCart/:productId", validatorDeleteProduct, deleteProductFromCart)
 
 router.put("/reduceQuantityProducts/:productId", validatorUpdateProduct, reduceQuantityProducts)
