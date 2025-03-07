@@ -2,7 +2,7 @@ import { body, param } from "express-validator";
 import { bodyValidator } from "./document-validator.js";
 import { validateJWT } from "./validate-jwt.js";
 import { hasRoles, validateUser } from "./validate-roles.js";
-import { categoryNameExist, productExist, productName } from "../helpers/db-validator.js";
+import { categoryExist, categoryNameExist, productExist, productName } from "../helpers/db-validator.js";
 
 export const validatorAddProduct = [
     validateJWT,
@@ -10,7 +10,7 @@ export const validatorAddProduct = [
     body("name").notEmpty().custom(productName).withMessage("Name is required"),
     body("description").notEmpty().withMessage("Description is required"),
     body("price").notEmpty().isNumeric().withMessage("Price must be a positive number"),
-    body("category").isMongoId().custom(categoryNameExist).withMessage("Not a valid ID"),
+    body("category").isMongoId().custom(categoryExist).withMessage("Not a valid ID"),
     body("stock").notEmpty().isNumeric().withMessage("Stock must be a positive integer"),
     bodyValidator
 ]

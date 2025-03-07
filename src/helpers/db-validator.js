@@ -1,6 +1,7 @@
 import Category from "../category/category.model.js";
 import User from "../user/user.model.js";
 import Product from "../product/product.model.js";
+import Invoice from "../invoice/invoice.model.js";
 
 export const emailExists = async (email = "") => {
     const exist = await User.findOne({email});
@@ -49,5 +50,12 @@ export const productExist = async (uid = "") =>{
     const exist = await Product.findById(uid)
     if(!exist){
         throw new Error(`The product not found`)
+    }
+}
+
+export const invoiceId = async (uid = "") =>{
+    const exist = await Invoice.findById(uid)
+    if(!exist){
+        throw new Error(`The invoice not found`)
     }
 }
