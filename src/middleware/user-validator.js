@@ -81,3 +81,24 @@ export const validatorDeleteUser = [
     param("uid").custom(userExist),
     bodyValidator
 ]
+
+export const updateValidatorPersonal = [
+    validateJWT,
+    hasRoles("CLIENT"),
+    body("email").notEmpty().isEmail().custom(emailExists).withMessage("Email is required"),
+]
+
+export const validatorAccountDeletion = [
+    validateJWT,
+    hasRoles("CLIENT"),
+    body("userLogin").notEmpty().withMessage("UserName o email is required"),
+    body("password").isStrongPassword({
+        minLength: 8,
+        minLowerCase: 1,
+        minUppercase: 1, 
+        minNumbers:1,
+        minSymbols:1
+    }).withMessage("The password must contain at least 8 characters"),
+    bodyValidator
+
+]

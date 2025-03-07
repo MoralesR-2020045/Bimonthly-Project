@@ -21,26 +21,31 @@ export const addProductToCart = async (req, res) => {
                 cart.items.push({ product: productId, quantity: quantity })
                 await cart.save()
                 return res.status(200).json({
-                    message: "Product added to cart", cart: cart
+                    message: "Product added to cart", 
+                    cart: cart
                 })
             }
 
             return res.status(200).json({
-                message: "Product updated quantity cart", cart: cart
+                message: "Product updated quantity cart", 
+                cart: cart
             })
 
         }
 
         const carting = await Cart.create({
-            user: id, items: [{ product: productId, quantity: quantity }]
+            user: id, items: [{ product: productId, 
+            quantity: quantity }]
         });
 
         return res.status(201).json({
-            message: "Product added to cart", cart: carting
+            message: "Product added to cart", 
+            cart: carting
         })
     } catch (error) {
         return res.status(500).json({
-            message: "Error adding product to cart", error: error.message
+            message: "Error adding product to cart", 
+            error: error.message
         });
     }
 }
@@ -111,7 +116,8 @@ export const reduceQuantityProducts = async (req, res) => {
             }
 
             return res.status(200).json({
-                message: "Product updated quantity cart", cart: cart
+                message: "Product updated quantity cart", 
+                cart: cart
             })
         }
 
@@ -145,7 +151,8 @@ export const increaseQuantityProducts = async (req, res) => {
             }
 
             return res.status(200).json({
-                message: "Product updated quantity cart", cart: cart
+                message: "Product updated quantity cart", 
+                cart: cart
             })
         }
 
