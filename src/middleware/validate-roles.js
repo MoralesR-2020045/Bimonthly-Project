@@ -16,3 +16,23 @@ export const hasRoles = (...roles) => {
         next()
     }
 }
+
+export const validateUser = (status) => {
+    return (req, res, next) => {
+        if (!req.usuario) {
+            return res.status(500).json({
+                success: false,
+                message: "Verifying a status is required before validating the token"
+            })
+        }
+
+        if (!status == req.usuario.status) {
+            return res.status(401).json({
+                success: false,
+                message: `The user must have the status: ${status}`
+            })
+        }
+        next()
+    }
+}
+
