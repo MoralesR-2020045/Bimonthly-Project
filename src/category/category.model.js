@@ -18,6 +18,11 @@ const categorySchema = Schema({
         type: Boolean,
         default: true
     }
-});
+})
+
+categorySchema.methods.toJSON = function () {
+    const { __v, status, ...category } = this.toObject()
+    return category
+}
 
 export default model ("Category", categorySchema)
