@@ -91,7 +91,7 @@ export const updateValidatorPersonal = [
 export const validatorAccountDeletion = [
     validateJWT,
     hasRoles("CLIENT"),
-    body("userLogin").notEmpty().withMessage("UserName o email is required"),
+    body("userLoggin").notEmpty().withMessage("UserName o email is required"),
     body("password").isStrongPassword({
         minLength: 8,
         minLowerCase: 1,

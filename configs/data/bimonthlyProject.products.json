@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "67ca941fc5aef6fd8d084cc3"
+  },
+  "name": "Laptop Gamer",
+  "description": "Laptop de alto rendimiento para gaming y diseño.",
+  "price": 1200,
+  "category": {
+    "$oid": "65fef9a8c9a3f2b9bcd12345"
+  },
+  "stock": 10,
+  "existence": true,
+  "bestSelling": 0,
+  "productImage": null,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ca95ace457c1a9ecd793b4"
+  },
+  "name": "Auriculares Inalámbricos",
+  "description": "Auriculares con cancelación de ruido y batería de larga duración.",
+  "price": 150,
+  "category": {
+    "$oid": "65fef9a8c9a3f2b9bcd12345"
+  },
+  "stock": 9,
+  "existence": true,
+  "bestSelling": 1,
+  "productImage": null,
+  "status": true,
+  "__v": 0
+}]

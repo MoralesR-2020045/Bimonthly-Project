@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "67ca93cdc5aef6fd8d084cb6"
+  },
+  "name": "Manolo",
+  "surname": "Carrillo",
+  "username": "Manolo Carrillo",
+  "phone": "05258596",
+  "role": "CLIENT",
+  "email": "new123@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$K1O0LOxnKe1FszieJ31nfQ$cK35/RFFwj4dJdHPKQx88M2e0e2mwCbB6YOPb8Ysug0",
+  "profilePicture": null,
+  "status": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67ca940bc5aef6fd8d084cbd"
+  },
+  "name": "Ramiro",
+  "surname": "Morales",
+  "username": "Ramiro Morales",
+  "phone": "28457921",
+  "role": "ADMIN",
+  "email": "rmorales@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$0tkQmuAZBVUNzbSo9Mm+UQ$Dn+RDdRNotT9uX/DphyMkAzNzFlHRWrmcb3y5hVXO00",
+  "profilePicture": null,
+  "status": true,
+  "__v": 0
+}]

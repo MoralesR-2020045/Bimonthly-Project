@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "67ca945fe6b0b957f12c5af2"
+  },
+  "name": "General",
+  "description": "Productos de tipo general sin clasificacion alguna o restriccion al publico",
+  "status": true,
+  "__v": 0
+}]
