@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "67ca942cc5aef6fd8d084cc8"
+  },
+  "user": {
+    "$oid": "67ca93cdc5aef6fd8d084cb6"
+  },
+  "items": [],
+  "__v": 3
+}]

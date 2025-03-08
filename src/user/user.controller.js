@@ -3,7 +3,7 @@ import User from "./user.model.js"
 
 export const modifyRole = async (req, res) => {
     try {
-        const {uid} = req.params;
+        const { uid } = req.params;
         const data = req.body;
         const user = await User.findByIdAndUpdate(uid, data, { new: true });
 
@@ -23,7 +23,7 @@ export const modifyRole = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        const {uid} = req.params;
+        const { uid } = req.params;
         const data = req.body
         const user = await User.findByIdAndUpdate(uid, data, { new: true });
 
@@ -47,8 +47,8 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
     try {
-        const {uid} = req.params
-        await User.findByIdAndUpdate(uid, {status: false}, {new: true})
+        const { uid } = req.params
+        await User.findByIdAndUpdate(uid, { status: false }, { new: true })
 
         return res.status(200).json({
             success: true,
@@ -65,46 +65,47 @@ export const deleteUser = async (req, res) => {
 
 export const updatePersonal = async (req, res) => {
     try {
-        const {_id} = req.usuario
+        const { _id } = req.usuario
         const data = req.body
         const update = await User.findByIdAndUpdate(_id, data, { new: true })
         if (!update) return res.status(404).json({
-                success: false,
-                message: 'Not found'
-            })
+            success: false,
+            message: 'Not found'
+        })
         return res.json({
-                success: true,
-                message: 'User updated successfully',
-                update
-            })
+            success: true,
+            message: 'User updated successfully',
+            update
+        })
     } catch (e) {
         console.error(e)
         return res.status(500).json({
-                success: false,
-                message: 'Error updated successfully',
-                e
-            })
+            success: false,
+            message: 'Error updated successfully',
+            e
+        })
     }
 }
 
 
 export const accountDeletion = async (req, res) => {
     try {
-        const  {uid}  = req.usuario
+        const { _id } = req.usuario
         const { userLoggin, password } = req.body
-        
+        const users = await User.findById(_id)
+        console.log(userLoggin, password)
         const user = await User.findOne({
-                $or: [{ email: userLoggin },{ username: userLoggin }]
-            })
+            $or: [{ email: userLoggin }, { username: userLoggin }]
+        })
 
         if (user && await verify(user.password, password)) {
-            let id  = user.id
-            console.log(id)
-
-            if(id === uid){
+            const id = user.id
+            const uid = users.id
+            if (id === uid ) {
+                console.log(true)
                 await User.findByIdAndUpdate(id, { status: false }, { new: true })
                 return res.send(
-                    { 
+                    {
                         success: true,
                         message: 'Your account has been deleted'
                     }
@@ -113,14 +114,14 @@ export const accountDeletion = async (req, res) => {
         }
 
         return res.status(400).send({ message: 'Wrong email or password' })
-        
+
     } catch (e) {
         console.error(e);
         return res.status(500).send(
-            { 
+            {
                 success: false,
-                message: 'Error deleting', 
-                e 
+                message: 'Error deleting',
+                e
             }
         )
     }

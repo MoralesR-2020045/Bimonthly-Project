@@ -115,3 +115,66 @@ export const deleteProduct = async (req, res) => {
         })
     }
 }
+
+export const getBestSellers = async (req, res) => {
+    try {
+        const bestSellers = await Product.find({status: true  })
+            .sort({ sold: -1 }) 
+            .limit(10) 
+
+        return res.json({ 
+            bestSellers 
+        })
+    } catch (error) {
+        return res.status(500).send({ 
+            message: "Error fetching best-selling products", 
+            error: error 
+        })
+    }
+}
+
+export const searchProducts = async (req, res) => {
+    try {
+        const { name } = req.body 
+
+        const products = await Product.find({ name: { $regex: name, $options: 'i' } })
+
+        if (products.length === 0) {
+            return res.status(404).json({
+                message: "No products found" 
+            })
+        }
+
+        return res.status(200).json({ 
+            products 
+        })
+    } catch (error) {
+        return res.status(500).send({ 
+            message: "Error searching for products", 
+            error: error 
+        })
+    }
+}
+
+export const filterProductsByCategory = async (req, res) => {
+    try {
+        const { id } = req.params
+
+        const products = await Product.find({ category: id })
+
+        if (products.length === 0) {
+            return res.status(404).json({ 
+                message: "No products found for this category" 
+            })
+        }
+
+        return res.status(200).json({ 
+            products 
+        })
+    } catch (error) {
+        return res.status(500).send({ 
+            message: "Error filtering products by category", 
+            error: error 
+        })
+    }
+}

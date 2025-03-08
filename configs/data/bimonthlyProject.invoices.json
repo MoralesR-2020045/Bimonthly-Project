@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67cac046833d1f11f57874f3"
+  },
+  "userId": {
+    "$oid": "67ca93cdc5aef6fd8d084cb6"
+  },
+  "items": [
+    {
+      "productId": {
+        "$oid": "67ca95ace457c1a9ecd793b4"
+      },
+      "quantity": 1,
+      "price": 150,
+      "_id": {
+        "$oid": "67cac046833d1f11f57874f4"
+      }
+    }
+  ],
+  "totalPrice": 150,
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-07T09:45:42.497Z"
+  },
+  "__v": 0
+}]

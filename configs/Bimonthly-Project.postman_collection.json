@@ -1,0 +1,1384 @@
+{
+	"info": {
+		"_postman_id": "efd1af87-190e-4173-960b-c2206875e9a6",
+		"name": "Bimonthly-Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41959681"
+	},
+	"item": [
+		{
+			"name": "userAutentication",
+			"item": [
+				{
+					"name": "register admin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ramiro",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Morales",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Ramiro Morales",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "rmorales@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "28457921",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1560Ana#",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/rmora/OneDrive/Escritorio/1.1.jpg"
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"Ramiro Morales\",\r\n  \"password\": \"1560Ana#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Manolo",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Carrillo",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Manolo Carrillo",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mcarrillo@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "52024574",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1560#rmA#",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/rmora/OneDrive/Escritorio/User.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"Manolo Carrillo\",\r\n  \"password\": \"1560#rmA#\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "userManagement",
+			"item": [
+				{
+					"name": "addUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FlZGI1MTUzYThlMGQ5YTk5NTdiYzciLCJpYXQiOjE3Mzk1MTQxMjgsImV4cCI6MTczOTUxNzcyOH0.ZuCy6n8GC2FKqGI1xMKRnl8I0i4MwPOiJT_-_-g4hqA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Dana Ariela ",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Morales López",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Dana Morales",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dmorales1523@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "50014520",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1590Ana#",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/rmora/OneDrive/Escritorio/1.3.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/auth/registerClient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"auth",
+								"registerClient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modify role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FlZWJkNjBkZGFjZTliNThhNjdmOWUiLCJpYXQiOjE3Mzk1MTY4OTksImV4cCI6MTczOTUyMDQ5OX0._kKPsT6u0gYqxgOzzB7AiGdVs_ApxrBbBzGWLI5Tn_E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/user/changeRol/67ae95c0d258f9f33ac225fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"user",
+								"changeRol",
+								"67ae95c0d258f9f33ac225fa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FlZWJkNjBkZGFjZTliNThhNjdmOWUiLCJpYXQiOjE3Mzk1MTY4OTksImV4cCI6MTczOTUyMDQ5OX0._kKPsT6u0gYqxgOzzB7AiGdVs_ApxrBbBzGWLI5Tn_E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Ramiro \",\r\n  \"phone\": \"46900234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/user/updateUser/67ae95c0d258f9f33ac225fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"user",
+								"updateUser",
+								"67ae95c0d258f9f33ac225fa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FlZWJkNjBkZGFjZTliNThhNjdmOWUiLCJpYXQiOjE3Mzk1MTY4OTksImV4cCI6MTczOTUyMDQ5OX0._kKPsT6u0gYqxgOzzB7AiGdVs_ApxrBbBzGWLI5Tn_E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/user/deleteUser/67ae95c0d258f9f33ac225fa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"user",
+								"deleteUser",
+								"67ae95c0d258f9f33ac225fa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categoryManagement",
+			"item": [
+				{
+					"name": "create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmY5NjUwMzFiNTAwMWUzNjZhNWQiLCJpYXQiOjE3NDEzNTY5NTksImV4cCI6MTc0MTM2MDU1OX0.EOl1_SmS1ZrkD0BWxzbGtxbj1xiNgbgZ3hxieptLASI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":  \"Electrónicos\",\r\n    \"description\": \"Dispositivos electrónicos como celulares, laptops, televisores y accesorios.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/category/createCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"category",
+								"createCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "existing categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmY5NjUwMzFiNTAwMWUzNjZhNWQiLCJpYXQiOjE3NDEzNTY5NTksImV4cCI6MTc0MTM2MDU1OX0.EOl1_SmS1ZrkD0BWxzbGtxbj1xiNgbgZ3hxieptLASI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/category/listCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"category",
+								"listCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3OGM5MTQ2ZmQ5YjA4OWIyZmNiMTIiLCJpYXQiOjE3NDExMzMwMTAsImV4cCI6MTc0MTEzNjYxMH0.2mUq2ymUeEPpSawKK2c2EBa46AxJ6vt5xV2b9wQBH6c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Line blanca\",\r\n  \"description\": \"Es linea blanca\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/category/updateCategory/67c794ddf76cd4cfed127fc7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"category",
+								"updateCategory",
+								"67c794ddf76cd4cfed127fc7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Usuario Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3OGM5MTQ2ZmQ5YjA4OWIyZmNiMTIiLCJpYXQiOjE3NDExMzMwMTAsImV4cCI6MTc0MTEzNjYxMH0.2mUq2ymUeEPpSawKK2c2EBa46AxJ6vt5xV2b9wQBH6c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/category/deleteCategory/67c794ddf76cd4cfed127fc7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"category",
+								"deleteCategory",
+								"67c794ddf76cd4cfed127fc7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product manager",
+			"item": [
+				{
+					"name": "add products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmY5NjUwMzFiNTAwMWUzNjZhNWQiLCJpYXQiOjE3NDEzNTY5NTksImV4cCI6MTc0MTM2MDU1OX0.EOl1_SmS1ZrkD0BWxzbGtxbj1xiNgbgZ3hxieptLASI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Auriculares Inalámbricos\",\r\n    \"description\": \"Auriculares con cancelación de ruido y batería de larga duración.\",\r\n    \"price\": 150,\r\n    \"category\": \"67caffc95031b5001e366a67\", \r\n    \"stock\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/addProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product catalog",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzODk1OTEsImV4cCI6MTc0MTM5MzE5MX0.Lbr9-2IMCmfZ8XlDnddTC2-Bw4-h4VSJbwsBoy8S9GI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/productCatalog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"productCatalog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3OGM5MTQ2ZmQ5YjA4OWIyZmNiMTIiLCJpYXQiOjE3NDEzMTM4MjksImV4cCI6MTc0MTMxNzQyOX0.IdmCcyXS8ILv3TwpMTlkzBhFay7hNRxGHwCPUJLorwg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/searchProduct/Iphone 15 pro max",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"searchProduct",
+								"Iphone 15 pro max"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update information product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3OGM5MTQ2ZmQ5YjA4OWIyZmNiMTIiLCJpYXQiOjE3NDEzMTM4MjksImV4cCI6MTc0MTMxNzQyOX0.IdmCcyXS8ILv3TwpMTlkzBhFay7hNRxGHwCPUJLorwg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Iphone 15 pro max\",\r\n    \"description\": \"Celular resistente al agua y contra golpes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/updateInformationProduct/67c8f259bf1cb92c13ddd764",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"updateInformationProduct",
+								"67c8f259bf1cb92c13ddd764"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3OGM5MTQ2ZmQ5YjA4OWIyZmNiMTIiLCJpYXQiOjE3NDEzMTQ3MjAsImV4cCI6MTc0MTMxODMyMH0.HeT2Yok_8ZwnMw_hYSqHhUsm8lxMUSVue_XB0UZP40U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": \"2500.50\",\r\n    \"stock\": \"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/updateSpecificDetailsProduct/67c8f259bf1cb92c13ddd764",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"updateSpecificDetailsProduct",
+								"67c8f259bf1cb92c13ddd764"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTQwYmM1YWVmNmZkOGQwODRjYmQiLCJpYXQiOjE3NDEzMzcwMDQsImV4cCI6MTc0MTM0MDYwNH0.--VT0p8vHsw-mOBtdqpbyAvKGmWRzQMzY5_bxVkZxsY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/deleteProduct/67ca941fc5aef6fd8d084cc3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"deleteProduct",
+								"67ca941fc5aef6fd8d084cc3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shopping cart",
+			"item": [
+				{
+					"name": "add cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmZhNDUwMzFiNTAwMWUzNjZhNjIiLCJpYXQiOjE3NDEzNjE4MjEsImV4cCI6MTc0MTM2NTQyMX0.OZS-fQL9uMJX_bjXw3croSmDcsuQ_JEi4L2dnK4PoD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"67cb0105446f157e2ddaab18\",\r\n    \"quantity\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/cart/addCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"cart",
+								"addCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmZhNDUwMzFiNTAwMWUzNjZhNjIiLCJpYXQiOjE3NDEzNjE4MjEsImV4cCI6MTc0MTM2NTQyMX0.OZS-fQL9uMJX_bjXw3croSmDcsuQ_JEi4L2dnK4PoD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/cart/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"cart",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reduce quantity products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzMzU1NDgsImV4cCI6MTc0MTMzOTE0OH0._3VnMW2q0q6ZLUr_FAewCjC3axbfCc4ygCfNziaJew0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"quantity\": 10\r\n        \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/cart/reduceQuantityProducts/67ca941fc5aef6fd8d084cc3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"cart",
+								"reduceQuantityProducts",
+								"67ca941fc5aef6fd8d084cc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "increase quantity products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzMzU1NDgsImV4cCI6MTc0MTMzOTE0OH0._3VnMW2q0q6ZLUr_FAewCjC3axbfCc4ygCfNziaJew0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/cart/increaseQuantityProducts/67ca941fc5aef6fd8d084cc3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"cart",
+								"increaseQuantityProducts",
+								"67ca941fc5aef6fd8d084cc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzMzU1NDgsImV4cCI6MTc0MTMzOTE0OH0._3VnMW2q0q6ZLUr_FAewCjC3axbfCc4ygCfNziaJew0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/cart/deleteProductFromCart/67ca941fc5aef6fd8d084cc3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"cart",
+								"deleteProductFromCart",
+								"67ca941fc5aef6fd8d084cc3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invoice generation",
+			"item": [
+				{
+					"name": "invoice generation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmZhNDUwMzFiNTAwMWUzNjZhNjIiLCJpYXQiOjE3NDEzNjE4MjEsImV4cCI6MTc0MTM2NTQyMX0.OZS-fQL9uMJX_bjXw3croSmDcsuQ_JEi4L2dnK4PoD0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/invoices/invoiceGeneration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"invoices",
+								"invoiceGeneration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update quantity invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmZhNDUwMzFiNTAwMWUzNjZhNjIiLCJpYXQiOjE3NDEzNTY5NzIsImV4cCI6MTc0MTM2MDU3Mn0.upTGYYYZ5Dt-GwXp7MOX1eL7OJLyse-4BOtc3uBAOw4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invoiceId\": \"67cb017a446f157e2ddaab29\",\r\n    \"productId\": \"67cb0105446f157e2ddaab18\",\r\n    \"newquantity\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/invoices/invoiceUpdate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"invoices",
+								"invoiceUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Associated invoices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhZmZhNDUwMzFiNTAwMWUzNjZhNjIiLCJpYXQiOjE3NDEzNjQ4MDAsImV4cCI6MTc0MTM2ODQwMH0.Sr2iif9AlKFfl-n2UWdHlQu4XcOcbakiqdqWiJdoemg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/invoices/invoicesFromUsuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"invoices",
+								"invoicesFromUsuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile management",
+			"item": [
+				{
+					"name": "update  profile management",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzODYxNjAsImV4cCI6MTc0MTM4OTc2MH0.uC5f4WNPJD_rktjoyXY3VBxvgqGNnKQuJNDbUH6e0D4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"new123@gmail.com\",\r\n    \"phone\": \"05258596\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/user/profileManagement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"user",
+								"profileManagement"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "account deletion",
+			"item": [
+				{
+					"name": "account deletion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzODYxNjAsImV4cCI6MTc0MTM4OTc2MH0.uC5f4WNPJD_rktjoyXY3VBxvgqGNnKQuJNDbUH6e0D4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userLoggin\": \"Manolo Carrillo\",\r\n  \"password\": \"1560#rmA#\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/user/accountDeletion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"user",
+								"accountDeletion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product exploration",
+			"item": [
+				{
+					"name": "best sellers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzODk1OTEsImV4cCI6MTc0MTM5MzE5MX0.Lbr9-2IMCmfZ8XlDnddTC2-Bw4-h4VSJbwsBoy8S9GI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/getBestSellers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"getBestSellers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzODk1OTEsImV4cCI6MTc0MTM5MzE5MX0.Lbr9-2IMCmfZ8XlDnddTC2-Bw4-h4VSJbwsBoy8S9GI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Auriculares Inalámbricos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/searchProducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"searchProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter Product Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzODk1OTEsImV4cCI6MTc0MTM5MzE5MX0.Lbr9-2IMCmfZ8XlDnddTC2-Bw4-h4VSJbwsBoy8S9GI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/product/filterProductsCategory/65fef9a8c9a3f2b9bcd12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"product",
+								"filterProductsCategory",
+								"65fef9a8c9a3f2b9bcd12345"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "catalog categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhOTNjZGM1YWVmNmZkOGQwODRjYjYiLCJpYXQiOjE3NDEzODk1OTEsImV4cCI6MTc0MTM5MzE5MX0.Lbr9-2IMCmfZ8XlDnddTC2-Bw4-h4VSJbwsBoy8S9GI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/bimonthlyProject/v1/category/listCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"bimonthlyProject",
+								"v1",
+								"category",
+								"listCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
